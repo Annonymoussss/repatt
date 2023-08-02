@@ -19,7 +19,7 @@ Additionally, we have conducted an extensive experiment on the widely-used Defec
 ├── SBFLPatches                 # Patches generated on SBFL 
 ├── Patches                     # Patches generated on Perfect FL
 ├── d4j-info                    # Information about D4j, such as failing tests 
-├── expriment_without_skip.zip  # Experiment logs of RQ2
+├── expriment_without_skip.zip  # Experiment logs of RQ3
 ├── lib                         # Essential java libaraies 
 ├── res                         # Log4j settings
 ├── repatt.jar                  # Executable Jar File of RePatt
@@ -27,8 +27,8 @@ Additionally, we have conducted an extensive experiment on the widely-used Defec
 ├── src                         # Source code, based on SimFix
 ├── standard_experiment_log.zip # Experiment logs of RQ1
 ├── test                        # Unit tests
-├── token_freq_2_log.zip        # Experiment logs of RQ3
-└── token_freq_5_log.zip        # Experiment logs of RQ3 
+├── token_freq_2_log.zip        # Experiment logs of RQ4
+└── token_freq_5_log.zip        # Experiment logs of RQ4
 ```
 
 
