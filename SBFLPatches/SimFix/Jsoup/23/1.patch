@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
+index e07f7de..d83f199 100644
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
+@@ -106,10 +106,15 @@ class CharacterReader {
+         int start = pos;
+         while (!isEmpty()) {
+             char c = input.charAt(pos);
++// start of generated patch
++if((c>='0'&&c<='9')||(c>='A'&&c<='z'))pos++;else break;
++// end of generated patch
++/* start of original code
+             if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                 pos++;
+             else
+                 break;
++ end of original code*/
+         }
+ 
+         return input.substring(start, pos);

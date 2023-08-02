@@ -1,0 +1,26 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+index 8bf10e8..b6d794b 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+@@ -369,6 +369,13 @@ public final class TypeFactory
+             // (2) A small set of "well-known" List/Map subtypes where can take a short-cut
+             if (baseType.isContainerType()) {
+                 if (baseType.isMapLikeType()) {
++// start of generated patch
++if((subclass==ArrayList.class)||(subclass==LinkedList.class)){
++newType=_fromClass(null,subclass,TypeBindings.create(subclass,baseType.getKeyType(),baseType.getContentType()));
++break;
++}
++// end of generated patch
++/* start of original code
+                     if ((subclass == HashMap.class)
+                             || (subclass == LinkedHashMap.class)
+                             || (subclass == EnumMap.class)
+@@ -377,6 +384,7 @@ public final class TypeFactory
+                                 TypeBindings.create(subclass, baseType.getKeyType(), baseType.getContentType()));
+                         break;
+                     }
++ end of original code*/
+                 } else if (baseType.isCollectionLikeType()) {
+                     if ((subclass == ArrayList.class)
+                             || (subclass == LinkedList.class)

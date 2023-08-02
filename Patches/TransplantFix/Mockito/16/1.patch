@@ -1,0 +1,21 @@
+diff --git a/src/org/mockito/internal/MockitoCore.java b/src/org/mockito/internal/MockitoCore.java
+index 532156676..31aacfc1d 100755
+--- a/src/org/mockito/internal/MockitoCore.java
++++ b/src/org/mockito/internal/MockitoCore.java
+@@ -29,7 +29,8 @@ public class MockitoCore {
+     private final MockUtil mockUtil = new MockUtil();
+     private final MockingProgress mockingProgress = new ThreadSafeMockingProgress();
+     
+-    public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mock(classToMock, mockSettings); }
++    public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mockUtil.createMock(classToMock, (MockSettingsImpl) mockSettings);
++ }
+     public <T> T mock(Class<T> classToMock, MockSettings mockSettings) {
+         mockingProgress.validateState();
+             mockingProgress.resetOngoingStubbing();
+@@ -137,4 +138,4 @@ public class MockitoCore {
+         List<Invocation> allInvocations = ongoingStubbing.getRegisteredInvocations();
+         return allInvocations.get(allInvocations.size()-1);
+     }
+-}
+\ No newline at end of file
++}

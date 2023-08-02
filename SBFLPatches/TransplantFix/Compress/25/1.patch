@@ -1,0 +1,10 @@
+--- /src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java	2022-05-03 09:49:56.185007511 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java	2022-05-03 10:16:46.571325192 -0400
+@@ -401,6 +401,7 @@
+      */
+     private int readStored(byte[] buffer, int offset, int length) throws IOException {
+ 
++in.read(buf.array());
+         if (current.hasDataDescriptor) {
+             if (lastStoredEntry == null) {
+                 readStoredEntry();

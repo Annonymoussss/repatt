@@ -1,0 +1,25 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
+index fdfeecb..210e109 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
+@@ -62,11 +62,20 @@ public final class StringArrayDeserializer
+             String value;
+             if (t == JsonToken.VALUE_STRING) {
+                 value = jp.getText();
++} else // start of generated patch
++if(t==JsonToken.VALUE_NULL){
++value=(_elementDeserializer==null)?null:_elementDeserializer.getNullValue();
++}else {
++value=_parseString(jp,ctxt);
++}
++// end of generated patch
++/* start of original code
+             } else if (t == JsonToken.VALUE_NULL) {
+                 value = _elementDeserializer.getNullValue();
+             } else {
+                 value = _parseString(jp, ctxt);
+             }
++ end of original code*/
+             if (ix >= chunk.length) {
+                 chunk = buffer.appendCompletedChunk(chunk);
+                 ix = 0;

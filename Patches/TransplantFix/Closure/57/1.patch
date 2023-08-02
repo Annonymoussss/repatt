@@ -1,0 +1,14 @@
+--- /src/com/google/javascript/jscomp/ClosureCodingConvention.java	2022-05-05 11:34:24.154488805 -0400
++++ /src/com/google/javascript/jscomp/ClosureCodingConvention.java	2022-05-05 11:40:38.453366547 -0400
+@@ -195,7 +195,9 @@
+         if (functionName.equals(qualifiedName)) {
+           Node target = callee.getNext();
+           if (target != null) {
+-            className = target.getString();
++            if (target.getType() == Token.STRING)  
++
++className = target.getString();
+           }
+         }
+       }
+

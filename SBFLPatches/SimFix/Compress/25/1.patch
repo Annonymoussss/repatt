@@ -1,0 +1,33 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+index 38ae9568..ce155550 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+@@ -401,6 +401,20 @@ public class ZipArchiveInputStream extends ArchiveInputStream {
+      */
+     private int readStored(byte[] buffer, int offset, int length) throws IOException {
+ 
++// start of generated patch
++buf.get(buffer,offset,Math.min(buf.remaining(),length));
++if(current.hasDataDescriptor){
++if(lastStoredEntry==null){
++readStoredEntry();
++}
++return lastStoredEntry.read(buffer,offset,length);
++}
++long csize=current.entry.getSize();
++if(current.bytesRead>=csize){
++return -1;
++}
++// end of generated patch
++/* start of original code
+         if (current.hasDataDescriptor) {
+             if (lastStoredEntry == null) {
+                 readStoredEntry();
+@@ -412,6 +426,7 @@ public class ZipArchiveInputStream extends ArchiveInputStream {
+         if (current.bytesRead >= csize) {
+             return -1;
+         }
++ end of original code*/
+ 
+         if (buf.position() >= buf.limit()) {
+             buf.position(0);

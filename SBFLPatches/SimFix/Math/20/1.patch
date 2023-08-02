@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 4b7dbf6bb..93e7d44b8 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -991,11 +991,20 @@ public class CMAESOptimizer
+             for (int i = 0; i < x.length; i++) {
+                 if (x[i] < 0) {
+                     repaired[i] = 0;
++} else // start of generated patch
++if(x[i]>1.0){
++repaired[i]=0.0;
++}else {
++repaired[i]=x[i];
++}
++// end of generated patch
++/* start of original code
+                 } else if (x[i] > 1.0) {
+                     repaired[i] = 1.0;
+                 } else {
+                     repaired[i] = x[i];
+                 }
++ end of original code*/
+             }
+             return repaired;
+         }

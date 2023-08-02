@@ -1,0 +1,45 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 8898f77..1128326 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1285,6 +1285,32 @@ public class Compiler extends AbstractCompiler {
+ 
+       // Check if the sources need to be re-ordered.
+       boolean staleInputs = false;
++// start of generated patch
++if(options.dependencyOptions.needsManagement()&&(options.removeAbstractMethods||options.removeClosureAsserts)){
++for(CompilerInput input : inputs){
++for(String provide : input.getProvides()){
++getTypeRegistry().forwardDeclareType(provide);
++}
++}
++try{
++inputs=(moduleGraph==null?new JSModuleGraph(modules):moduleGraph).manageDependencies(options.dependencyOptions,inputs);
++staleInputs=true;
++}catch (CircularDependencyException e) {
++  report(JSError.make(JSModule.CIRCULAR_DEPENDENCY_ERROR,e.getMessage()));
++  if (hasErrors()) {
++    return null;
++  }
++}
++catch (MissingProvideException e) {
++  report(JSError.make(MISSING_ENTRY_ERROR,e.getMessage()));
++  if (hasErrors()) {
++    return null;
++  }
++}
++
++}
++// end of generated patch
++/* start of original code
+       if (options.dependencyOptions.needsManagement() && options.closurePass) {
+         for (CompilerInput input : inputs) {
+           // Forward-declare all the provided types, so that they
+@@ -1317,6 +1343,7 @@ public class Compiler extends AbstractCompiler {
+           }
+         }
+       }
++ end of original code*/
+ 
+       hoistNoCompileFiles();
+ 

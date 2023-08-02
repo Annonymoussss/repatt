@@ -1,0 +1,13 @@
+diff --git a/src/com/google/javascript/jscomp/FunctionInjector.java b/src/com/google/javascript/jscomp/FunctionInjector.java
+index 9d3fdd3..ebc6df8 100644
+--- a/src/com/google/javascript/jscomp/FunctionInjector.java
++++ b/src/com/google/javascript/jscomp/FunctionInjector.java
+@@ -718,7 +718,7 @@ class FunctionInjector {
+         if (cArg != null) {
+           if (NodeUtil.mayEffectMutableState(cArg, compiler)
+               && NodeUtil.getNameReferenceCount(
+-                  block, fnParam.getString()) > 1) {
++                  block, fnParam.getString())>=1) {
+             return CanInlineResult.NO;
+           }
+         }

@@ -1,0 +1,33 @@
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+index 4f4394c..f79e90b 100644
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+@@ -522,6 +522,20 @@ public class UTF8JsonGenerator
+     @Override
+     public void writeRaw(String text, int offset, int len) throws IOException
+     {
++// start of generated patch
++ final char[] buf=_charBuffer;
++while(len>0){
++int len2=Math.min(buf.length,len);
++text.getChars(offset,offset+len2,buf,0);
++if(len2>=0x80){
++break;
++}
++writeRaw(buf,0,len2);
++offset+=len2;
++len-=len2;
++}
++// end of generated patch
++/* start of original code
+         final char[] buf = _charBuffer;
+ 
+         // minor optimization: see if we can just get and copy
+@@ -539,6 +553,7 @@ public class UTF8JsonGenerator
+             offset += len2;
+             len -= len2;
+         }
++ end of original code*/
+     }
+ 
+     @Override

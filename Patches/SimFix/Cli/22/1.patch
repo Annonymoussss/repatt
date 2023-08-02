@@ -1,0 +1,22 @@
+diff --git a/src/java/org/apache/commons/cli/PosixParser.java b/src/java/org/apache/commons/cli/PosixParser.java
+index 47ad0f7..2cf0aae 100644
+--- a/src/java/org/apache/commons/cli/PosixParser.java
++++ b/src/java/org/apache/commons/cli/PosixParser.java
+@@ -183,10 +183,17 @@ public class PosixParser extends Parser
+      */
+     private void processNonOptionToken(String value)
+     {
++// start of generated patch
++eatTheRest=true;
++tokens.remove("--");
++tokens.add(value);
++// end of generated patch
++/* start of original code
+             eatTheRest = true;
+             tokens.add("--");
+ 
+         tokens.add(value);
++ end of original code*/
+     }
+ 
+     /**

@@ -1,0 +1,11 @@
+--- /src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java	2022-05-03 07:19:57.830429986 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java	2022-05-03 07:20:56.748857264 -0400
+@@ -342,6 +342,7 @@
+      *             occurred
+      */
+     public void close() throws IOException {
++finish();
+         if (!this.closed) {
+             super.close();
+             this.closed = true;
+

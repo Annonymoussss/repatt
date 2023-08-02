@@ -1,0 +1,13 @@
+--- /src/java/org/apache/commons/cli/HelpFormatter.java	2022-05-03 10:44:04.870890332 -0400
++++ /src/java/org/apache/commons/cli/HelpFormatter.java	2022-05-03 10:56:02.584752940 -0400
+@@ -331,7 +331,8 @@
+      */
+     public void printHelp(String cmdLineSyntax, Options options)
+     {
+-        printHelp(defaultWidth, cmdLineSyntax, null, options, null, false);
++        defaultWidth = defaultWidth + defaultWidth;
++printHelp(defaultWidth, cmdLineSyntax, null, options, null, false);
+     }
+ 
+     /**
+

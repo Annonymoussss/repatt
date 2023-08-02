@@ -1,0 +1,21 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java b/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java
+index 4add34e..b1ee481 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java
+@@ -159,15 +159,7 @@ public class ReferenceType extends SimpleType
+                 _valueHandler, _typeHandler, _asStatic);
+     }
+ 
+-    @Override
+-    protected String buildCanonicalName()
+-    {
+-        StringBuilder sb = new StringBuilder();
+-        sb.append(_class.getName());
+-        sb.append('<');
+-        sb.append(_referencedType.toCanonical());
+-        return sb.toString();
+-    }
++    
+ 
+     /*
+     /**********************************************************

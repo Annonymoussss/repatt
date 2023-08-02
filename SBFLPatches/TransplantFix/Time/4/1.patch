@@ -1,0 +1,13 @@
+--- /src/main/java/org/joda/time/field/ZeroIsMaxDateTimeField.java	2022-05-02 23:32:37.981268020 -0400
++++ /src/main/java/org/joda/time/field/ZeroIsMaxDateTimeField.java	2022-05-02 23:33:56.173936491 -0400
+@@ -108,7 +108,8 @@
+      * @return the minimum value of 1
+      */
+     public int getMinimumValue() {
+-        return 1;
++        return getWrappedField().getMaximumValue() + 1;
++
+     }
+ 
+     /**
+

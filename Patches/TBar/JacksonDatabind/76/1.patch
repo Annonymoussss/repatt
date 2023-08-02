@@ -1,0 +1,13 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
+index 1629a42..7d9827d 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
+@@ -580,7 +580,7 @@ public class BuilderBasedDeserializer
+             // creator property?
+             SettableBeanProperty creatorProp = creator.findCreatorProperty(propName);
+             if (creatorProp != null) {
+-                if (buffer.assignParameter(creatorProp, creatorProp.deserialize(p, ctxt))) {
++                if ((buffer.assignParameter(creatorProp, creatorProp.deserialize(p, ctxt))) && (buffer.readIdProperty(propName))) {
+                     t = p.nextToken();
+                     Object bean;
+                     try {

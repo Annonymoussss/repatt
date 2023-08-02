@@ -1,0 +1,13 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+index a30cd5a..9ab1890 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
++++ b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+@@ -238,7 +238,7 @@ public class ArchiveStreamFactory {
+             }
+             // COMPRESS-117 - improve auto-recognition
+             try {
+-                TarArchiveInputStream tais = new TarArchiveInputStream(new ByteArrayInputStream(tarheader));
++                TarArchiveInputStream tais = new TarArchiveInputStream(new ByteArrayInputStream(tarheader), signatureLength);
+                 tais.getNextEntry();
+                 return new TarArchiveInputStream(in);
+             } catch (Exception e) { // NOPMD

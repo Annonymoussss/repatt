@@ -1,0 +1,13 @@
+--- /src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java	2022-05-04 07:56:04.761430137 -0400
++++ /src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java	2022-05-04 07:57:08.963302967 -0400
+@@ -412,7 +412,8 @@
+         Element element = (Element) node;
+         String prefix = name.getPrefix();
+         if (prefix != null) {
+-            String ns = getNamespaceURI(prefix);
++            String ns = getNamespaceResolver().getNamespaceURI(prefix);
++
+             if (ns == null) {
+                 throw new JXPathException(
+                     "Unknown namespace prefix: " + prefix);
+

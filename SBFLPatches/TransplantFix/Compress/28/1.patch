@@ -1,0 +1,13 @@
+--- /src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	2022-05-03 17:24:34.254038807 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	2022-05-03 17:39:08.313899888 -0400
+@@ -224,7 +224,8 @@
+      */
+     public TarArchiveEntry getNextTarEntry() throws IOException {
+         if (hasHitEOF) {
+-            return null;
++            throw new IOException("The stream is closed");
++
+         }
+ 
+         if (currEntry != null) {
+

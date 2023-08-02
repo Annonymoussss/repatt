@@ -1,0 +1,15 @@
+--- /src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java	2022-05-04 07:32:47.418674283 -0400
++++ /src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java	2022-05-04 07:42:32.996683539 -0400
+@@ -862,7 +862,10 @@
+     {
+         VisibilityChecker<?> vchecker = super.getDefaultVisibilityChecker();
+         // then global overrides (disabling)
+-        if (!isEnabled(MapperFeature.AUTO_DETECT_GETTERS)) {
++        if (!isEnabled(MapperFeature.AUTO_DETECT_SETTERS)) {
++            vchecker = vchecker.withSetterVisibility(Visibility.NONE);
++
++        }if (!isEnabled(MapperFeature.AUTO_DETECT_GETTERS)) {
+             vchecker = vchecker.withGetterVisibility(Visibility.NONE);
+         }
+         if (!isEnabled(MapperFeature.AUTO_DETECT_IS_GETTERS)) {
+

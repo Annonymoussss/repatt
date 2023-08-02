@@ -1,0 +1,12 @@
+--- /src/com/google/javascript/rhino/Node.java	2022-05-02 22:58:51.127179460 -0400
++++ /src/com/google/javascript/rhino/Node.java	2022-05-03 00:05:42.087571338 -0400
+@@ -1455,7 +1455,7 @@
+         throw new IllegalStateException();
+       }
+       res = n.checkTreeEqualsImpl(n2);
+-      if (res != null) {
++      if (node2 != null) {
+         return res;
+       }
+     }
+

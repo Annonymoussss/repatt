@@ -1,0 +1,13 @@
+--- /src/java/org/apache/commons/cli/PosixParser.java	2022-05-03 02:28:21.394991395 -0400
++++ /src/java/org/apache/commons/cli/PosixParser.java	2022-05-03 02:54:10.386821686 -0400
+@@ -237,7 +237,8 @@
+         }
+         else if (stopAtNonOption)
+         {
+-            eatTheRest = true;
++            process(token);
++eatTheRest = true;
+         }
+     }
+ 
+

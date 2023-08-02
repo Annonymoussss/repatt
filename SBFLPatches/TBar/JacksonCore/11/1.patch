@@ -1,0 +1,14 @@
+diff --git a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+index f19acc7..005fa86 100644
+--- a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
++++ b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+@@ -928,7 +928,8 @@ public final class ByteQuadsCanonicalizer
+          */
+         final int end = (_hashSize << 3);
+         if (_spilloverEnd >= end) {
+-            if (_failOnDoS) {
++            release();
++	if (_failOnDoS) {
+                 _reportTooManyCollisions();
+             }
+             // and if we didn't fail, we'll simply force rehash for next add

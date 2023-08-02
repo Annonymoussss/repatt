@@ -1,0 +1,12 @@
+--- /src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	2022-05-03 13:28:26.416547587 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	2022-05-03 13:56:10.204954360 -0400
+@@ -130,7 +130,7 @@
+             end--;
+             trailer = buffer[end - 1];
+         }
+-        if (start == end) {
++        if (offset == -1) {
+             throw new IllegalArgumentException(
+                     exceptionMessage(buffer, offset, length, start, trailer));
+         }
+

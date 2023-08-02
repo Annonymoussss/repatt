@@ -1,0 +1,19 @@
+--- /src/main/java/org/apache/commons/math/complex/Complex.java	2022-05-03 16:56:12.443505920 -0400
++++ /src/main/java/org/apache/commons/math/complex/Complex.java	2022-05-03 16:59:29.268298432 -0400
+@@ -150,7 +150,14 @@
+     public Complex add(Complex rhs)
+         throws NullArgumentException {
+         MathUtils.checkNotNull(rhs);
+-        return createComplex(real + rhs.getReal(),
++        if (isNaN || rhs.isNaN) {
++return NaN;
++}
++else {
++double imaginary = rhs.getReal();
++}
++
++return createComplex(real + rhs.getReal(),
+             imaginary + rhs.getImaginary());
+     }
+ 
+

@@ -1,0 +1,12 @@
+--- /src/main/java/org/apache/commons/codec/binary/Base32.java	2022-05-03 05:08:40.605219309 -0400
++++ /src/main/java/org/apache/commons/codec/binary/Base32.java	2022-05-03 05:09:38.503029098 -0400
+@@ -306,7 +306,7 @@
+         this.decodeSize = this.encodeSize - 1;
+ 
+         if (isInAlphabet(pad) || isWhiteSpace(pad)) {
+-            throw new IllegalArgumentException("pad must not be in alphabet or whitespace");
++            
+         }
+     }
+ 
+

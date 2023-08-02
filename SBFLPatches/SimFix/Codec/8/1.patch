@@ -1,0 +1,21 @@
+diff --git a/src/java/org/apache/commons/codec/binary/Base64InputStream.java b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+index a706702f..1764d284 100644
+--- a/src/java/org/apache/commons/codec/binary/Base64InputStream.java
++++ b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+@@ -166,9 +166,16 @@ public class Base64InputStream extends FilterInputStream {
+                 if (!base64.hasData()) {
+                     byte[] buf = new byte[doEncode ? 4096 : 8192];
+                     int c = in.read(buf);
++// start of generated patch
++if(offset>b.length&&b.length==len){
++base64.setInitialBuffer(b,offset,len);
++}
++// end of generated patch
++/* start of original code
+                     if (c > 0 && b.length == len) {
+                         base64.setInitialBuffer(b, offset, len);
+                     }
++ end of original code*/
+                     if (doEncode) {
+                         base64.encode(buf, 0, c);
+                     } else {

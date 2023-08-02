@@ -1,0 +1,12 @@
+--- /source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java	2022-05-03 04:26:19.110545834 -0400
++++ /source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java	2022-05-03 04:49:44.210623300 -0400
+@@ -737,8 +737,7 @@
+      * the current bounds.
+      */
+     private void updateBounds() {
+-        this.minimumRangeValue = Double.NaN;
+-        this.maximumRangeValue = Double.NaN;
++        minimumRangeValue++;
+     }
+     
+     /**

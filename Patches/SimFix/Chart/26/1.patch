@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index ce6f5ca..9fe49af 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -1187,6 +1187,16 @@ public abstract class Axis implements Cloneable, Serializable {
+                     + insets.getRight());
+ 
+         }
++// start of generated patch
++if(plotState!=null&&plotState.getOwner()!=null){
++ChartRenderingInfo owner=plotState.getOwner();
++EntityCollection entities=owner.getEntityCollection();
++if(entities!=null){
++entities.add(new AxisLabelEntity(this,hotspot,this.labelToolTip,this.labelURL));
++}
++}
++// end of generated patch
++/* start of original code
+         if (plotState != null && hotspot != null) {
+             ChartRenderingInfo owner = plotState.getOwner();
+                 EntityCollection entities = owner.getEntityCollection();
+@@ -1195,6 +1205,7 @@ public abstract class Axis implements Cloneable, Serializable {
+                             this.labelToolTip, this.labelURL));
+                 }
+         }
++ end of original code*/
+         return state;
+ 
+     }

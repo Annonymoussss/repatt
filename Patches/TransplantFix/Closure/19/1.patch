@@ -1,0 +1,13 @@
+--- /src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java	2022-05-02 20:40:23.739343937 -0400
++++ /src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java	2022-05-02 20:50:58.608763021 -0400
+@@ -172,8 +172,7 @@
+         // "this" references aren't currently modeled in the CFG.
+ 
+       default:
+-        throw new IllegalArgumentException("Node cannot be refined. \n" +
+-            node.toStringTree());
++        
+     }
+   }
+ 
+

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java
+index 0dea7a9..09d18a9 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java
++++ b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java
+@@ -763,10 +763,7 @@ public class CpioArchiveEntry implements CpioConstants, ArchiveEntry {
+         case C_ISNWK:
+             break;
+         default:
+-            throw new IllegalArgumentException(
+-                                               "Unknown mode. "
+-                                               + "Full: " + Long.toHexString(mode) 
+-                                               + " Masked: " + Long.toHexString(maskedMode));
++            
+         }
+ 
+         this.mode = mode;

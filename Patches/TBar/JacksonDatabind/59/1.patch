@@ -1,0 +1,13 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+index 8bf10e8..7fb39ed 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+@@ -425,7 +425,8 @@ public final class TypeFactory
+ 
+         // 25-Sep-2016, tatu: As per [databind#1384] also need to ensure handlers get
+         //   copied as well
+-        return newType;
++        clearCache();
++	return newType;
+ 
+         // 20-Oct-2015, tatu: Old simplistic approach

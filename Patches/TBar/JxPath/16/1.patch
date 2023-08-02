@@ -1,0 +1,15 @@
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+index fcc1f18..b14d09c 100644
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+@@ -144,8 +144,8 @@ public class DOMNodePointer extends NodePointer {
+             int nodeType = node.getNodeType();
+             switch (((NodeTypeTest) test).getNodeType()) {
+                 case Compiler.NODE_TYPE_NODE :
+-                    return nodeType == Node.ELEMENT_NODE
+-                            || nodeType == Node.DOCUMENT_NODE;
++                    return (nodeType == Node.ELEMENT_NODE
++                            || nodeType == Node.DOCUMENT_NODE) || (nodeType == Node.TEXT_NODE || nodeType == Node.CDATA_SECTION_NODE);
+                 case Compiler.NODE_TYPE_TEXT :
+                     return nodeType == Node.CDATA_SECTION_NODE
+                         || nodeType == Node.TEXT_NODE;

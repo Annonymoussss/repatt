@@ -1,0 +1,21 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java b/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
+index da192ee..2a379f2 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
++++ b/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
+@@ -865,9 +865,16 @@ public final class SerializationConfig
+         if (!isEnabled(MapperFeature.AUTO_DETECT_GETTERS)) {
+             vchecker = vchecker.withGetterVisibility(Visibility.NONE);
+         }
++// start of generated patch
++if(!isEnabled(MapperFeature.AUTO_DETECT_IS_GETTERS)){
++vchecker=vchecker.withSetterVisibility(Visibility.NONE);
++}
++// end of generated patch
++/* start of original code
+         if (!isEnabled(MapperFeature.AUTO_DETECT_IS_GETTERS)) {
+             vchecker = vchecker.withIsGetterVisibility(Visibility.NONE);
+         }
++ end of original code*/
+         if (!isEnabled(MapperFeature.AUTO_DETECT_FIELDS)) {
+             vchecker = vchecker.withFieldVisibility(Visibility.NONE);
+         }

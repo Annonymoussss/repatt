@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/jsoup/nodes/Node.java b/src/main/java/org/jsoup/nodes/Node.java
+index 124f739..ffa0cec 100644
+--- a/src/main/java/org/jsoup/nodes/Node.java
++++ b/src/main/java/org/jsoup/nodes/Node.java
+@@ -124,9 +124,17 @@ public abstract class Node implements Cloneable {
+      * @return this (for chaining)
+      */
+     public Node removeAttr(String attributeKey) {
++// start of generated patch
++Validate.notNull(attributeKey);
++attributes.removeIgnoreCase(attributeKey);
++attributes=new Attributes();
++return this;
++// end of generated patch
++/* start of original code
+         Validate.notNull(attributeKey);
+         attributes.removeIgnoreCase(attributeKey);
+         return this;
++ end of original code*/
+     }
+ 
+     /**

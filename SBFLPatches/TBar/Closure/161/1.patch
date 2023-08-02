@@ -1,0 +1,15 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+index 0b2636f..5b586d7 100644
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -1281,7 +1281,9 @@ class PeepholeFoldConstants extends AbstractPeepholeOptimization {
+     // acting as a temporary we can't fold it here:
+     //    "[][0] += 1"
+ 
+-    if (right.getType() != Token.NUMBER) {
++    if ((right.getType() != Token.NUMBER) || ((NodeUtil.isAssignmentOp(parent) && parent.getFirstChild() == n)
++        || parent.getType() == Token.INC
++        || parent.getType() == Token.DEC)) {
+       // Sometimes people like to use complex expressions to index into
+       // arrays, or strings to index into array methods.
+       return n;

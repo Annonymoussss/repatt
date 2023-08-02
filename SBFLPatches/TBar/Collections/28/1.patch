@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java b/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
+index 41f8535..2de9146 100644
+--- a/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
++++ b/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
+@@ -2387,7 +2387,7 @@ abstract class AbstractPatriciaTrie<K, V> extends AbstractBitwiseTrie<K, V> {
+                 // then we need to find a new subtree parent.
+                 boolean needsFixing = false;
+                 final int bitIdx = subtree.bitIndex;
+-                if (current == subtree) {
++                if ((current == subtree) && !(lengthInBits >= subtree.bitIndex)) {
+                     needsFixing = true;
+                 }

@@ -1,0 +1,12 @@
+diff --git a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+index 8361ac9..06b75fb 100644
+--- a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
++++ b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+@@ -211,7 +211,7 @@ class MaybeReachingVariableUse extends
+ 
+       case Token.HOOK:
+         computeMayUse(n.getLastChild(), cfgNode, output, true);
+-        computeMayUse(n.getFirstChild().getNext(), cfgNode, output, true);
++        computeMayUse(n.getFirstChild().getNext(), cfgNode, output, false);
+         computeMayUse(n.getFirstChild(), cfgNode, output, conditional);
+         return;

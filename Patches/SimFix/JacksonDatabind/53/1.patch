@@ -1,0 +1,33 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+index c3fc79f..64cad12 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+@@ -388,6 +388,20 @@ public final class TypeFactory
+                 newType = baseType.refine(subclass, TypeBindings.emptyBindings(), baseType, NO_TYPES);
+             }
+             // Only SimpleType returns null, but if so just resolve regularly
++// start of generated patch
++if(newType==null||newType.containedTypeCount()<2){
++TypeBindings tb=null;
++if(baseType.containedTypeCount()==typeParamCount){
++if(typeParamCount==1){
++tb=TypeBindings.create(subclass,baseType.containedType(0));
++}else if(typeParamCount==2){
++tb=TypeBindings.create(subclass,baseType.containedType(0),baseType.containedType(1));
++}
++}
++newType=_fromClass(null,subclass,(tb==null)?TypeBindings.emptyBindings():tb);
++}
++// end of generated patch
++/* start of original code
+             if (newType == null) {
+                 TypeBindings tb = null;
+                 if (baseType.containedTypeCount() == typeParamCount) {
+@@ -401,6 +415,7 @@ public final class TypeFactory
+                 newType = _fromClass(null, subclass,
+                         (tb == null) ? TypeBindings.emptyBindings() : tb);
+             }
++ end of original code*/
+         } while (false);
+ 
+         // except possibly handlers

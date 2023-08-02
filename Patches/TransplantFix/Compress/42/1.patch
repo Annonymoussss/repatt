@@ -1,0 +1,13 @@
+--- /src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java	2022-05-02 18:33:04.723724653 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java	2022-05-02 18:33:57.457891004 -0400
+@@ -294,7 +294,8 @@
+      * @return true if the entry represents a unix symlink, false otherwise.
+      */
+     public boolean isUnixSymlink() {
+-        return (getUnixMode() & UnixStat.LINK_FLAG) == UnixStat.LINK_FLAG;
++        return false;
++
+     }
+ 
+     /**
+

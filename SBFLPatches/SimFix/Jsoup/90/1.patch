@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/jsoup/helper/HttpConnection.java b/src/main/java/org/jsoup/helper/HttpConnection.java
+index a941e48..c059417 100644
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
+@@ -415,11 +415,21 @@ public class HttpConnection implements Connection {
+                     end = i + 1;
+                 } else if ((o & 0xF0) == 0xE0) {
+                     end = i + 2;
++} else // start of generated patch
++i++;
++if((o&0xf8)==0xf0){
++end=i+3;
++}else {
++return false;
++}
++// end of generated patch
++/* start of original code
+                 } else if ((o & 0xF8) == 0xF0) {
+                     end = i + 3;
+                 } else {
+                     return false;
+                 }
++ end of original code*/
+ 
+ 
+                 while (i < end) {

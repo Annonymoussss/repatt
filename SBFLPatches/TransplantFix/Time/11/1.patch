@@ -1,0 +1,12 @@
+--- /src/main/java/org/joda/time/tz/ZoneInfoCompiler.java	2022-05-03 13:12:45.238602302 -0400
++++ /src/main/java/org/joda/time/tz/ZoneInfoCompiler.java	2022-05-03 13:24:43.446277448 -0400
+@@ -75,7 +75,8 @@
+      * @return true to log verbosely
+      */
+     public static boolean verbose() {
+-        return cVerbose.get();
++        return true;
++
+     }
+ 
+     //-----------------------------------------------------------------------

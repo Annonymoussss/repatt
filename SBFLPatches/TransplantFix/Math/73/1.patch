@@ -1,0 +1,11 @@
+--- /src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	2022-05-03 15:41:05.434179508 -0400
++++ /src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	2022-05-03 15:49:16.624120875 -0400
+@@ -123,6 +123,7 @@
+ 
+         // return the second endpoint if it is good enough
+         double yMax = f.value(max);
++verifyBracketing(min, max, f);
+         if (Math.abs(yMax) <= functionValueAccuracy) {
+             setResult(yMax, 0);
+             return result;
+

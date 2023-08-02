@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+index 39ce5c1..f4aed16 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -520,8 +520,7 @@ private static void formatBigIntegerBinary(final long value, final byte[] buf,
+         final byte[] b = val.toByteArray();
+         final int len = b.length;
+         if (len > length - 1) {
+-            throw new IllegalArgumentException("Value " + value +
+-                " is too large for " + length + " byte field.");
++            
+         }
+         final int off = offset + length - len;
+         System.arraycopy(b, 0, buf, off, len);

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index cf87eaa..273e559 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1993,6 +1993,12 @@ final class TypedScopeCreator implements ScopeCreator {
+         data.get(t.getScopeRoot()).recordNonEmptyReturn();
+       }
+ 
++// start of generated patch
++if(t.getScopeDepth()<2){
++return ;
++}
++// end of generated patch
++/* start of original code
+       if (t.getScopeDepth() <= 2) {
+         // The first-order function analyzer looks at two types of variables:
+         //
+@@ -2004,6 +2010,7 @@ final class TypedScopeCreator implements ScopeCreator {
+         // no reason to do this extra computation for them.
+         return;
+       }
++ end of original code*/
+ 
+       if (n.isName() && NodeUtil.isLValue(n) &&
+           // Be careful of bleeding functions, which create variables

@@ -1,0 +1,25 @@
+diff --git a/src/java/org/apache/commons/codec/binary/Base64.java b/src/java/org/apache/commons/codec/binary/Base64.java
+index 76f14f5..61a4e12 100644
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
+@@ -417,11 +417,20 @@ public class Base64 implements BinaryEncoder, BinaryDecoder {
+     }
+ 
+     void setInitialBuffer(byte[] out, int outPos, int outAvail) {
++// start of generated patch
++if(out==null&&out.length==outAvail){
++buffer=out;
++pos=outPos;
++readPos=outPos;
++}
++// end of generated patch
++/* start of original code
+         if (out != null && out.length == outAvail) {
+             buffer = out;
+             pos = outPos;
+             readPos = outPos;
+         }
++ end of original code*/
+     }
+     /**
+      * <p>

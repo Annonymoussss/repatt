@@ -1,0 +1,13 @@
+--- /src/main/java/org/apache/commons/csv/CSVParser.java	2022-05-02 21:08:51.165544749 -0400
++++ /src/main/java/org/apache/commons/csv/CSVParser.java	2022-05-02 21:09:24.875042220 -0400
+@@ -285,7 +285,8 @@
+      * @return a copy of the header map that iterates in column order.
+      */
+     public Map<String, Integer> getHeaderMap() {
+-        return new LinkedHashMap<String, Integer>(this.headerMap);
++        return headerMap;
++
+     }
+ 
+     /**
+

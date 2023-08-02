@@ -1,0 +1,13 @@
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+index 65ed1ed..b3b9689 100644
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+@@ -85,7 +85,7 @@ public abstract class CoreOperationRelationalExpression extends CoreOperation {
+             return containsMatch((Iterator) left, right);
+         }
+         if (right instanceof Iterator) {
+-            return containsMatch((Iterator) right, left);
++            return (containsMatch((Iterator) right, left)) || !(left instanceof Iterator && right instanceof Iterator);
+         }
+         double ld = InfoSetUtil.doubleValue(left);
+         if (Double.isNaN(ld)) {

@@ -1,0 +1,12 @@
+--- /src/java/org/apache/commons/cli/PosixParser.java	2022-05-03 03:29:40.119588210 -0400
++++ /src/java/org/apache/commons/cli/PosixParser.java	2022-05-03 03:35:42.716657588 -0400
+@@ -231,7 +231,7 @@
+             currentOption = options.getOption(token);
+             tokens.add(token);
+         }
+-        else if (stopAtNonOption)
++        else if (!eatTheRest)
+         {
+             eatTheRest = true;
+             tokens.add(token);
+

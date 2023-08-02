@@ -1,0 +1,13 @@
+diff --git a/src/com/google/javascript/jscomp/MethodCompilerPass.java b/src/com/google/javascript/jscomp/MethodCompilerPass.java
+index cd39b6e..630372b 100644
+--- a/src/com/google/javascript/jscomp/MethodCompilerPass.java
++++ b/src/com/google/javascript/jscomp/MethodCompilerPass.java
+@@ -104,7 +104,7 @@ abstract class MethodCompilerPass implements CompilerPass {
+       // The node we're looking at is a function, so we can add it directly
+       addSignature(name, node, t.getSourceName());
+       signatureAdded = true;
+-    } else if (node.getType() == Token.NAME) {
++    } else if ((node.getType() == Token.NAME) && (node.getType() == Token.FUNCTION)) {
+       String functionName = node.getString();
+       Scope.Var v = t.getScope().getVar(functionName);
+       if (v == null) {

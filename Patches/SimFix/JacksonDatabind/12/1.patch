@@ -1,0 +1,18 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java
+index 4785e3f..3c3bfd9 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java
+@@ -300,8 +300,13 @@ public class MapDeserializer
+         /* As per [databind#735], existence of value or key deserializer (only passed
+          * if annotated to use non-standard one) should also prevent caching.
+          */
++// start of generated patch
++return (_valueTypeDeserializer!=null);
++// end of generated patch
++/* start of original code
+         return (_valueTypeDeserializer == null)
+                 && (_ignorableProperties == null);
++ end of original code*/
+     }
+ 
+     @Override

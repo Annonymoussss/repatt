@@ -1,0 +1,13 @@
+--- /src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	2022-05-04 02:52:19.741858018 -0400
++++ /src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	2022-05-04 02:57:54.652753296 -0400
+@@ -153,7 +153,8 @@
+         _classSignature(_class, sb, false);
+         sb.append('<');
+         sb = _referencedType.getGenericSignature(sb);
+-        sb.append(';');
++        sb.append('>');
++sb.append(';');
+         return sb;
+     }
+     
+

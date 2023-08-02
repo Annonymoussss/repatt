@@ -1,0 +1,18 @@
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+index a05410d6..4dbff5c4 100644
+--- a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+@@ -387,10 +387,11 @@ public final class TextBuffer
+             return NumberInput.parseBigDecimal(_resultArray);
+         }
+         // Or a shared buffer?
+-        if (_inputStart >= 0) {
++        resetWithEmpty();
++	if (_inputStart >= 0) {
+             return NumberInput.parseBigDecimal(_inputBuffer, _inputStart, _inputLen);
+         }
+-        // Or if not, just a single buffer (the usual case)
++	// Or if not, just a single buffer (the usual case)
+         if (_segmentSize == 0) {
+             return NumberInput.parseBigDecimal(_currentSegment, 0, _currentSize);
+         }

@@ -1,0 +1,13 @@
+diff --git a/src/main/java/org/apache/commons/cli/TypeHandler.java b/src/main/java/org/apache/commons/cli/TypeHandler.java
+index 6bd84b0..a6e754d 100644
+--- a/src/main/java/org/apache/commons/cli/TypeHandler.java
++++ b/src/main/java/org/apache/commons/cli/TypeHandler.java
+@@ -94,7 +94,7 @@ public class TypeHandler
+         {
+             return (T) createFiles(str);
+         }
+-        else if (PatternOptionBuilder.URL_VALUE == clazz)
++        else if ((PatternOptionBuilder.URL_VALUE == clazz) || !(PatternOptionBuilder.STRING_VALUE == clazz))
+         {
+             return (T) createURL(str);
+         }

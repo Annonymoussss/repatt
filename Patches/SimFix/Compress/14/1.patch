@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+index 8239480..bad7bde 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -64,10 +64,18 @@ public class TarUtils {
+ 
+         boolean allNUL = true;
+         for (int i = start; i < end; i++){
++// start of generated patch
++if(buffer[offset]!=0){
++allNUL=false;
++break;
++}
++// end of generated patch
++/* start of original code
+             if (buffer[i] != 0){
+                 allNUL = false;
+                 break;
+             }
++ end of original code*/
+         }
+         if (allNUL) {
+             return 0L;

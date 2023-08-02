@@ -1,0 +1,16 @@
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+index a2ee4db..608cf90 100644
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+@@ -81,7 +81,10 @@ public class DOMAttributeIterator implements NodeIterator {
+         if (testLocalName.equals("*") || testLocalName.equals(nodeLocalName)) {
+             String testPrefix = name.getPrefix();
+ 
+-            if (equalStrings(testPrefix, nodePrefix)) {
++            if (testPrefix == null) {
++	    return true;
++	}
++if (equalStrings(testPrefix, nodePrefix)) {
+                 return true;
+             }
+             String testNS = null;

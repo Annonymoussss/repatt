@@ -1,0 +1,12 @@
+--- /src/main/java/com/fasterxml/jackson/core/JsonPointer.java	2022-05-03 18:48:56.229057720 -0400
++++ /src/main/java/com/fasterxml/jackson/core/JsonPointer.java	2022-05-03 18:49:32.450187998 -0400
+@@ -189,7 +189,7 @@
+         if (len == 0 || len > 10) {
+             return -1;
+         }
+-        for (int i = 0; i < len; ++i) {
++        for (int i = 1; i < len; ++i) {
+             char c = str.charAt(i++);
+             if (c > '9' || c < '0') {
+                 return -1;
+

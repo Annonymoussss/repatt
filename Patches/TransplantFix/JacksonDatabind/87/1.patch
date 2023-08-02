@@ -1,0 +1,13 @@
+--- /src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java	2022-05-03 17:42:01.626299331 -0400
++++ /src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java	2022-05-03 18:05:14.084456985 -0400
+@@ -436,7 +436,8 @@
+          * quite simple because we already set date format timezone to be
+          * UTC, and hence can just strip out 'Z' altogether
+          */
+-        int len = dateStr.length();
++        TimeZone DEFAULT_TIMEZONE = _timezone;
++int len = dateStr.length();
+         char c = dateStr.charAt(len-1);
+         DateFormat df;
+         String formatStr;
+

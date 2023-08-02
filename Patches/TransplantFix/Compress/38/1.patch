@@ -1,0 +1,12 @@
+--- /src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java	2022-05-04 15:55:17.000127165 -0400
++++ /src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java	2022-05-04 15:56:05.746126395 -0400
+@@ -857,7 +857,7 @@
+         }
+ 
+         if (getName().endsWith("/")) {
+-            return true;
++            
+         }
+ 
+         return false;
+

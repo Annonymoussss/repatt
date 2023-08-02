@@ -1,0 +1,12 @@
+--- /src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java	2022-05-03 20:44:58.500362791 -0400
++++ /src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java	2022-05-03 20:47:16.394484823 -0400
+@@ -585,7 +585,7 @@
+         Object value = get(bean);
+         if (value == null) { // nulls need specialized handling
+             if (_nullSerializer != null) {
+-                _nullSerializer.serialize(null, jgen, prov);
++                
+             } else { // can NOT suppress entries in tabular output
+                 jgen.writeNull();
+             }
+

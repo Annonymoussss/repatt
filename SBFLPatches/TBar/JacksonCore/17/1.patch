@@ -1,0 +1,13 @@
+diff --git a/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java b/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+index d1b97a0..d3e378a 100644
+--- a/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
++++ b/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+@@ -296,7 +296,7 @@ public abstract class GeneratorBase extends JsonGenerator
+ 
+     @Override public void writeRawValue(String text, int offset, int len) throws IOException {
+         _verifyValueWrite("write raw value");
+-        writeRaw(text, offset, len);
++        writeRaw(text, len, offset);
+     }
+ 
+     @Override public void writeRawValue(char[] text, int offset, int len) throws IOException {

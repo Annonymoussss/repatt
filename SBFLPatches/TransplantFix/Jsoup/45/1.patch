@@ -1,0 +1,12 @@
+--- /src/main/java/org/jsoup/parser/HtmlTreeBuilder.java	2022-05-02 20:31:11.167479889 -0400
++++ /src/main/java/org/jsoup/parser/HtmlTreeBuilder.java	2022-05-02 20:35:37.363163992 -0400
+@@ -391,7 +391,7 @@
+             if ("select".equals(name)) {
+                 transition(HtmlTreeBuilderState.InSelect);
+                 break; // frag
+-            } else if (("td".equals(name) || "td".equals(name) && !last)) {
++            } else if (!last) {
+                 transition(HtmlTreeBuilderState.InCell);
+                 break;
+             } else if ("tr".equals(name)) {
+

@@ -1,0 +1,12 @@
+--- /src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java	2022-05-02 21:02:54.919110775 -0400
++++ /src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java	2022-05-02 21:58:15.658801722 -0400
+@@ -64,6 +64,8 @@
+     {
+         // Note! Should not skip if `property` null since that'd skip check
+         // for config overrides, in case of root value
++if (_useTimestamp != null)  
++
+         if (property == null) {
+             return this;
+         }
+

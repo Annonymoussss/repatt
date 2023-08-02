@@ -1,0 +1,13 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarBuffer.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarBuffer.java
+index a2d0a9a..556e5b3 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarBuffer.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarBuffer.java
+@@ -238,7 +238,7 @@ class TarBuffer { // Not public, because only needed by the Tar IO streams
+             // Thanks to 'Yohann.Roussel@alcatel.fr' for this fix.
+             //
+             if (numBytes == -1) {
+-                if (offset == 0) {
++                if (offset == bytesNeeded || (offset == 0)) {
+                     // Ensure that we do not read gigabytes of zeros
+                     // for a corrupt tar file.
+                     // See http://issues.apache.org/bugzilla/show_bug.cgi?id=39924

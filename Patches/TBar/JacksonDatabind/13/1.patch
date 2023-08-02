@@ -1,0 +1,14 @@
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java b/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java
+index 373ac89..9c8d679 100644
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java
+@@ -85,7 +85,8 @@ public abstract class DefaultDeserializationContext
+          *   missing id already works.
+          */
+ 
+-        final ObjectIdGenerator.IdKey key = gen.key(id);
++        if (id == null) id = new Object();
++ final ObjectIdGenerator.IdKey key = gen.key(id);
+ 
+         if (_objectIds == null) {
+             _objectIds = new LinkedHashMap<ObjectIdGenerator.IdKey,ReadableObjectId>();

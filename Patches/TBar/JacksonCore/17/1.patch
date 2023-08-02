@@ -1,0 +1,13 @@
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+index 4f4394c..700a124 100644
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+@@ -530,7 +530,7 @@ public class UTF8JsonGenerator
+         // size that is guaranteed to fit in output buffer; each char can expand to
+         // at most 3 bytes, so at most 1/3 of buffer size.
+ 
+-        while (len > 0) {
++        while ((len > 0) && (len <= _outputMaxContiguous)) {
+             int len2 = Math.min(buf.length, len);
+             text.getChars(offset, offset+len2, buf, 0);
+             writeRaw(buf, 0, len2);

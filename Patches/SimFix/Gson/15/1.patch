@@ -1,0 +1,21 @@
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+index 043c3bd..dbeacde 100644
+--- a/gson/src/main/java/com/google/gson/stream/JsonWriter.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+@@ -492,9 +492,16 @@ public class JsonWriter implements Closeable, Flushable {
+    */
+   public JsonWriter value(double value) throws IOException {
+     writeDeferredName();
++// start of generated patch
++if(!isLenient()&&(Double.isNaN(value)||Double.isInfinite(value))){
++throw new IllegalArgumentException("Numeric values must be finite, but was "+value);
++}
++// end of generated patch
++/* start of original code
+     if (Double.isNaN(value) || Double.isInfinite(value)) {
+       throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+     }
++ end of original code*/
+     beforeValue();
+     out.append(Double.toString(value));
+     return this;

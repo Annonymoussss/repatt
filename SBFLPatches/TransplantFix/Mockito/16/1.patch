@@ -1,0 +1,12 @@
+--- /src/org/mockito/internal/MockitoCore.java	2022-05-03 15:34:17.114116490 -0400
++++ /src/org/mockito/internal/MockitoCore.java	2022-05-03 16:01:32.996646745 -0400
+@@ -29,7 +29,8 @@
+     private final MockUtil mockUtil = new MockUtil();
+     private final MockingProgress mockingProgress = new ThreadSafeMockingProgress();
+     
+-    public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mock(classToMock, mockSettings); }
++    public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mockUtil.createMock(classToMock, (MockSettingsImpl) mockSettings);
++ }
+     public <T> T mock(Class<T> classToMock, MockSettings mockSettings) {
+         mockingProgress.validateState();
+             mockingProgress.resetOngoingStubbing();

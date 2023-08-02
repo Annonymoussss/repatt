@@ -1,0 +1,43 @@
+diff --git a/src/main/java/org/apache/commons/csv/CSVFormat.java b/src/main/java/org/apache/commons/csv/CSVFormat.java
+index 35ee86a..45dab32 100644
+--- a/src/main/java/org/apache/commons/csv/CSVFormat.java
++++ b/src/main/java/org/apache/commons/csv/CSVFormat.java
+@@ -1036,6 +1036,30 @@ public final class CSVFormat implements Serializable {
+                 char c = value.charAt(pos);
+ 
+                 // RFC4180 (https://tools.ietf.org/html/rfc4180) TEXTDATA =  %x20-21 / %x23-2B / %x2D-7E
++// start of generated patch
++if(c==CR||c==LF||c==delimChar||c==quoteChar){
++quote=true;
++}else if(c<=COMMENT){
++quote=true;
++}else {
++while(pos<end){
++c=value.charAt(pos);
++if(c==LF||c==CR||c==quoteChar||c==delimChar){
++quote=true;
++break;
++}
++pos++;
++}
++if(!quote){
++pos=end-1;
++c=value.charAt(pos);
++if(c<=SP){
++quote=true;
++}
++}
++}
++// end of generated patch
++/* start of original code
+                 if (newRecord && (c < '0' || c > '9' && c < 'A' || c > 'Z' && c < 'a' || c > 'z')) {
+                     quote = true;
+                 } else if (c <= COMMENT) {
+@@ -1063,6 +1087,7 @@ public final class CSVFormat implements Serializable {
+                         }
+                     }
+                 }
++ end of original code*/
+             }
+ 
+             if (!quote) {

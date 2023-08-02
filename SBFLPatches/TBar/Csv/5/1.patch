@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/csv/CSVFormat.java b/src/main/java/org/apache/commons/csv/CSVFormat.java
+index 566728a..014432c 100644
+--- a/src/main/java/org/apache/commons/csv/CSVFormat.java
++++ b/src/main/java/org/apache/commons/csv/CSVFormat.java
+@@ -879,6 +879,6 @@ public final class CSVFormat implements Serializable {
+      */
+     public CSVFormat withSkipHeaderRecord(final boolean skipHeaderRecord) {
+         return new CSVFormat(delimiter, quoteChar, quotePolicy, commentStart, escape,
+-                ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, header, skipHeaderRecord);
++                ignoreSurroundingSpaces, ignoreEmptyLines, toString(), nullString, header, skipHeaderRecord);
+     }
+ }

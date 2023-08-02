@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
+index 9265415..5e2a3c1 100644
+--- a/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
+@@ -57,10 +57,19 @@ public class BrentOptimizer extends AbstractUnivariateRealOptimizer {
+         throw new UnsupportedOperationException();
+     }
+     public double optimize(final UnivariateRealFunction f, final GoalType goalType, final double min, final double max, final double startValue) throws MaxIterationsExceededException, FunctionEvaluationException {
++// start of generated patch
++if(f.value(max)==0.0){
++return max;
++}
++clearResult();
++return localMin(getGoalType()==GoalType.MINIMIZE,f,goalType,min,startValue,max,getRelativeAccuracy(),getAbsoluteAccuracy());
++// end of generated patch
++/* start of original code
+         clearResult();
+         return localMin(getGoalType() == GoalType.MINIMIZE,
+                         f, goalType, min, startValue, max,
+                         getRelativeAccuracy(), getAbsoluteAccuracy());
++ end of original code*/
+     }
+     public double optimize(final UnivariateRealFunction f, final GoalType goalType, final double min, final double max) throws MaxIterationsExceededException, FunctionEvaluationException {
+         return optimize(f, goalType, min, max, min + GOLDEN_SECTION * (max - min));

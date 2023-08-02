@@ -1,0 +1,13 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index 044bdd9..660a8d9 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -604,7 +604,7 @@ public final class NodeUtil {
+     }
+ 
+     for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+-      if (canBeSideEffected(c, knownConstants)) {
++      if (isValidDefineValue(c, knownConstants)) {
+         return true;
+       }
+     }

@@ -1,0 +1,13 @@
+--- /src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java	2022-05-03 06:06:19.521130010 -0400
++++ /src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java	2022-05-03 06:09:02.274204946 -0400
+@@ -240,7 +240,8 @@
+      */
+     @Override
+     public int hashCode() {
+-        return hashCode;
++        calculateHashCode(keys);
++return hashCode;
+     }
+ 
+     /**
+
