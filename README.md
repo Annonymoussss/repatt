@@ -13,7 +13,7 @@ Additionally, we have conducted an extensive experiment on the widely-used Defec
 ```
 .
 ├── APRTool                     # Java Code of PatchRanker(For combination)
- 																# And for priliminary study
+	# And for priliminary study
 ├── RankResultPerfectFL.txt     # Rank Result on Perfect FL
 ├── SBFLRankResult.txt          # Rank Result on SBFL
 ├── SBFLPatches                 # Patches generated on SBFL 
